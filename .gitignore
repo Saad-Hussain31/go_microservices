@@ -1,0 +1,33 @@
+# Compiled Object files, Static and Dynamic libraries (Shared Objects)
+*.o
+*.a
+*.so
+
+# Executables
+*.exe
+*.out
+
+# Binary distributions
+*.bin
+*.zip
+
+# Build and dependency directories
+/bin/
+/pkg/
+/vendor/
+
+# Generated files
+*.test
+*.prof
+
+# Log files
+*.log
+
+# IDE / Editor specific files
+.idea/
+.vscode/
+
+# Dependency directories (managed by dep, glide, etc.)
+/Godeps/
+/vendor/
+__debug_bin*
