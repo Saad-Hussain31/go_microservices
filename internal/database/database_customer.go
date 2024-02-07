@@ -1,3 +1,5 @@
+// Contains the implementation of database operations specific to customers, like retrieving all customers based on email address.
+
 package database
 
 import (

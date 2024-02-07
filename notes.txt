@@ -1,0 +1,42 @@
+High-Level Overview:
+This microservice is designed to provide CRUD (Create, Read, Update, Delete) operations for customer data. It's built in GoLang and follows a modular structure with a focus on separation of concerns.
+
+Database Layer (internal/database): Handles database interactions using GORM, a popular ORM for Go. It defines an interface DatabaseClient and its implementation Client to abstract database operations. The Client struct implements methods to check database readiness and retrieve customers based on email address.
+
+Model Layer (internal/models): Contains structs representing data models. In this case, Customer and Health structs are defined for representing customer data and service health status, respectively.
+
+Server Layer (internal/server): Defines HTTP server functionality using Echo, a lightweight web framework for Go. It implements the Server interface, which consists of methods for starting the server, checking service readiness, and handling HTTP routes for CRUD operations on customers.
+
+Error Handling (internal/dberrors): Defines custom error types (ConflictError and NotFoundError) for handling database conflicts and entity not found errors.
+
+Low-Level Overview:
+main.go: Entry point of the application. It initializes the database client, creates an instance of the server, and starts the server.
+
+database/client.go: Implements the DatabaseClient interface, providing methods for checking database readiness and fetching customers from the database based on email address.
+
+database/database_customer.go: Contains the implementation of database operations specific to customers, like retrieving all customers based on email address.
+
+models/model_customer.go: Defines the Customer struct representing customer data.
+
+models/model_status.go: Defines the Health struct representing the status of the microservice.
+
+server/customer.go: Defines HTTP route handlers for customer-related operations such as retrieving all customers.
+
+server/server.go: Implements the Server interface, providing methods for starting the server, checking service readiness, and handling HTTP routes.
+
+server/server.go: Registers HTTP routes for health checks and customer operations. It also handles service readiness and liveness checks.
+
+dberrors/conflict.go: Defines the ConflictError type for handling conflicts during database operations.
+
+dberrors/not_found.go: Defines the NotFoundError type for handling entity not found errors during database operations.
+
+Patterns Used:
+Dependency Injection: The NewEchoServer function injects dependencies (such as the database client) into the server instance, promoting modularity and testability.
+
+Repository Pattern: Although not explicitly named, the DatabaseClient interface serves as a repository interface, abstracting away the details of database access from the server layer.
+
+Error Handling: Custom error types are defined for handling specific error scenarios, enhancing code readability and maintainability.
+
+Separation of Concerns: The project structure separates concerns into different packages (database, models, server, dberrors), making the codebase modular and easier to manage.
+
+HTTP Routing: The use of Echo framework simplifies HTTP routing and request handling, providing a clean and organized way to define API endpoints.

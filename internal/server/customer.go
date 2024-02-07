@@ -1,3 +1,7 @@
+// Defines HTTP server functionality using Echo, a lightweight web framework for Go. It implements the Server interface, which consists of methods for starting the server, checking service readiness, and handling HTTP routes for CRUD operations on customers.
+
+// Defines HTTP route handlers for customer-related operations such as retrieving all customers.
+
 package server
 
 import (

@@ -1,3 +1,5 @@
+//Defines the NotFoundError type for handling entity not found errors during database operations.
+
 package dberrors
 
 import "fmt"

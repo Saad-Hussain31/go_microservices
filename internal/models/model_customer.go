@@ -1,3 +1,5 @@
+// Contains structs representing data models. In this case, Customer and Health structs are defined for representing customer data and service health status, respectively.
+
 package models
 
 type Customer struct {

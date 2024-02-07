@@ -1,3 +1,5 @@
+// Implements the Server interface, providing methods for starting the server, checking service readiness, and handling HTTP routes. Registers HTTP routes for health checks and customer operations. It also handles service readiness and liveness checks
+
 package server
 
 import (

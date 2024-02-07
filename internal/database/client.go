@@ -1,3 +1,5 @@
+// Implements the DatabaseClient interface, providing methods for checking database readiness and fetching customers from the database based on email address.
+
 package database
 
 import (
